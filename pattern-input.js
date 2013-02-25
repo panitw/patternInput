@@ -112,8 +112,13 @@
             return this.each(function () {
                 var $this = $(this);
                 if (this.tagName == "DIV") {
-                    $this.attr('unselectable', 'on')
-                         .css('user-select', 'none')
+
+                    //Fix CSS stuffs to correct the display and dragging.
+                    $this.attr('unselectable', 'on').css('user-select', 'none');                    
+                    if ($this.css("position") == "static") {
+                        $this.css("position", "relative");
+                    }
+
                     var state = $this.data("patternInput");
                     if (!state) {
                         //Save all options as the state of this plug-in to each DOM element
@@ -125,7 +130,7 @@
                              .height(state.height);
 
                         //Create a new canvas for Path drawing
-                        state.canvas = $('<canvas width="' + state.width + '" height="' + state.height + '" style="position:absolute;left:0px;top:0px;z-index:0;"></canvas>');
+                        state.canvas = $('<canvas width="' + state.width + '" height="' + state.height + '" style="position:absolute;left:0px;top:0px;"></canvas>');
                         $this.append(state.canvas);
                         var ctx = state.canvas[0].getContext("2d");
                         ctx.strokeStyle = state.pathColor;
@@ -143,7 +148,6 @@
                                 var newDiv = $('<div class="dot" style="width:' + state.dotSize + 'px;' +
                                                                                    'height:' + state.dotSize + 'px;' +
                                                                                    'position: absolute; ' +
-                                                                                   'z-index: 1; ' +
                                                                                    'left:' + runnerX + 'px; ' +
                                                                                    'top:' + runnerY + 'px;">' +
                                                                                    '<div class="innerDot" style="position:absolute;' +
@@ -175,12 +179,16 @@
                             }
                         });
                         $this.on("mouseup", function (event) {
-                            state.mouseDown = false;
-                            processTouchEnd(state);
+                            if (state.mouseDown == true) {
+                                state.mouseDown = false;
+                                processTouchEnd(state);
+                            }
                         });
                         $(document).on("mouseup", function (event) {
-                            state.mouseDown = false;
-                            processTouchEnd(state);
+                            if (state.mouseDown == true) {
+                                state.mouseDown = false;
+                                processTouchEnd(state);
+                            }
                         });
                         $this.on("touchstart", function (event) {
                             var relativeX = event.originalEvent.targetTouches[0].pageX - this.offsetLeft;

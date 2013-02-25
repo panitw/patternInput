@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Pattern Input Demo</title>
+    <link href="pattern-input.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="pattern-input.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#patternLocker").patternInput({ 
+                onFinish: function (pattern) {
+                    alert(pattern.join(","));
+                }
+            });
+            $("#patternLocker2").patternInput({
+            	width: 400,
+            	height: 400,
+            	verticalDots: 4,
+            	horizontalDots: 4,
+                onFinish: function (pattern) {
+                    alert(pattern.join(","));
+                }
+            });
+        });
+
+    </script>
+</head>
+<body >
+	Default Setting<br>
+    <div id="patternLocker"></div>
+	Default Setting<br>
+    <div id="patternLocker2"></div>
+</body>
+</html>
