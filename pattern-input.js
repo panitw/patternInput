@@ -166,15 +166,15 @@
                         }
 
                         $this.on("mousedown", function (event) {
-                            var relativeX = event.clientX - this.offsetLeft;
-                            var relativeY = event.clientY - this.offsetTop;
+                            var relativeX = event.pageX - this.offsetLeft;
+                            var relativeY = event.pageY - this.offsetTop;
                             state.mouseDown = true;
                             processTouchStart(state, relativeX, relativeY);
                         });
                         $this.on("mousemove", function (event) {
                             if (state.mouseDown == true) {
-                                var relativeX = event.clientX - this.offsetLeft;
-                                var relativeY = event.clientY - this.offsetTop;
+                                var relativeX = event.pageX - this.offsetLeft;
+                                var relativeY = event.pageY - this.offsetTop;
                                 processTouchMove(state, relativeX, relativeY);
                             }
                         });

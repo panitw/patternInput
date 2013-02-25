@@ -24,14 +24,21 @@
                     alert(pattern.join(","));
                 }
             });
+            $("#patternLocker3").patternInput({ 
+                onFinish: function (pattern) {
+                    alert(pattern.join(","));
+                }
+            });
         });
 
     </script>
 </head>
 <body >
 	Default Setting<br>
-    <div id="patternLocker"></div>
-	Default Setting<br>
+    <div id="patternLocker"></div><br>
+	With options<br>
     <div id="patternLocker2"></div>
+    <div style="position:absolute; top: 80px; left: 500px;">Absolute Position</div>
+    <div id="patternLocker3" style="position:absolute; top: 100px; left: 500px;"></div>
 </body>
 </html>
