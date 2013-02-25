@@ -1,5 +1,5 @@
-jQuery Pattern Input
-====================
+jQuery Pattern Input Plug-in
+=============================
 
 jQuery plug-in to create input panel using Android Pattern Lock Style. This plug-in requires no dependency (apart from jQuery) and no image is used, just JavaScript and CSS.
 
@@ -57,6 +57,16 @@ $("#patternPanel").patternInput({
         alert("Finish: "+value.join(",");
     }
 });
+</pre>
+
+And finally, to call a method of this component.
+
+<pre>
+//Clear the current input sequence
+$("#patternPanel").patternInput("clear");
+
+//Get the current input sequence
+var sequence = $("#patternPanel").patternInput("getLastSequence");
 </pre>
 
 Full list of options/events/methods can be seen in the API document section. 
