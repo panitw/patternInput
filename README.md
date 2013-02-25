@@ -19,7 +19,7 @@ Usage Guide
 To instantiate the input panel, you need an empty div as a placeholder
 
 <pre>
-<div id="patternPanel" />
+&lt;div id="patternPanel" /&gt;
 </pre>
 
 Then in JavaScript
