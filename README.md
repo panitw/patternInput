@@ -7,6 +7,8 @@ Input Panel using Android Pattern Lock Style
 
 Usage Guide
 ===========
+To be added tonight.
 
 API Document
 ============
+To be added tonight.
