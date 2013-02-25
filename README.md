@@ -18,19 +18,19 @@ Usage Guide
 
 To instantiate the input panel, you need an empty div as a placeholder
 
-<blockquote>
+<pre>
 <div id="patternPanel" />
-</blockquote>
+</pre>
 
 Then in JavaScript
 
-<blockquote>
+<pre>
 $("#patternPanel").patternInput();
-</blockquote>
+</pre>
 
 The code above will create the input panel with default settings, (3x3 dots and 300x300 pixels for Width and Height. To specify some options, you can do like below.
 
-<blockquote>
+<pre>
 $("#patternPanel").patternInput({
     verticalDots: 4,
     horizontalDots: 4,
@@ -38,7 +38,7 @@ $("#patternPanel").patternInput({
     height: 400,
     autoClear: false
 });
-</blockquote>
+</pre>
 
 Full list of options can be seen in the API document section.
 
