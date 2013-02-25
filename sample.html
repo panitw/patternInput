@@ -28,6 +28,19 @@
             event.preventDefault();
         }
 
+        function GetSequence(panelId) {
+        	var seq = $("#"+panelId).patternInput("getLastSequence");
+        	if (seq) {
+	        	alert("Last sequence of "+panelId+" is "+seq.join(","));
+        	} else {
+        		alert("There's no last sequence for "+panelId);
+        	}
+        }
+
+        function ClearSequence(panelId) {
+        	$("#"+panelId).patternInput("clear");
+        }        
+
         $(document).ready(function () {
             $("#patternLocker").patternInput({ 
                 onFinish: function (pattern) {
@@ -35,6 +48,7 @@
                 }
             });
             $("#patternLocker2").patternInput({
+            	autoClear: false,
             	width: 400,
             	height: 400,
             	verticalDots: 4,
@@ -53,10 +67,16 @@
     </script>
 </head>
 <body ontouchmove="BlockElasticScroll(event);">
+	
 	Default Setting<br>
-    <div id="patternLocker"></div><br>
-	With options<br>
+    <div id="patternLocker"></div>
+    <input type="button" value="Get Sequence" onclick="GetSequence('patternLocker')"><br /><br />
+	
+	With options (4x4 dots, autoClear=false)<br>
     <div id="patternLocker2"></div>
+    <input type="button" value="Get Sequence" onclick="GetSequence('patternLocker2')">
+    <input type="button" value="Clear Sequence" onclick="ClearSequence('patternLocker2')">
+
     <div style="position:absolute; top: 75px; left: 450px;">Absolute Position</div>
     <div id="patternLocker3" style="position:absolute; top: 100px; left: 450px;"></div>
 </body>

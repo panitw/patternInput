@@ -85,6 +85,7 @@
 
     function processTouchEnd(state) {
         if (state.value && state.value.length > 0) {
+            state.lastSequence = state.value;
             setTimeout(function() {
                 state.onFinish(state.value);
             },10);
@@ -211,6 +212,15 @@
                     }
                 }
             });
+        },
+        clear: function() {
+            var state = this.data("patternInput");
+            clearSelection(state);
+            return this;
+        },
+        getLastSequence: function() {
+            var state = this.data("patternInput");
+            return state.lastSequence;
         }
     }
 
