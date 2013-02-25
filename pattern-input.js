@@ -74,19 +74,23 @@
                 state.value.push(hitAt);
                 state.lastHit = hitAt;
                 state.dots[hitAt].addClass("selected");
-                state.onChange(state.value);
                 state.logger("onChange: SEQ=" + state.value.join(","));
                 renderPath(state);
+                setTimeout(function() {
+                    state.onChange(state.value);
+                },10);
             }
         }
     }
 
     function processTouchEnd(state) {
         if (state.value && state.value.length > 0) {
+            setTimeout(function() {
+                state.onFinish(state.value);
+            },10);
             if (state.autoClear) {
                 clearSelection(state);
             }
-            state.onFinish(state.value);
             state.logger("onFinish: SEQ=" + state.value.join(","));
         }
     }
@@ -194,6 +198,7 @@
                             var relativeX = event.originalEvent.targetTouches[0].pageX - this.offsetLeft;
                             var relativeY = event.originalEvent.targetTouches[0].pageY - this.offsetTop;
                             processTouchStart(state, relativeX, relativeY);
+                            state.touchDown = true;
                         });
                         $this.on("touchmove", function (event) {
                             var relativeX = event.originalEvent.targetTouches[0].pageX - this.offsetLeft;

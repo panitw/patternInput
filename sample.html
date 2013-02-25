@@ -9,6 +9,10 @@
     <script src="pattern-input.js" type="text/javascript"></script>
     <script type="text/javascript">
 
+        function BlockElasticScroll(event) {
+            event.preventDefault();
+        }
+
         $(document).ready(function () {
             $("#patternLocker").patternInput({ 
                 onFinish: function (pattern) {
@@ -33,7 +37,7 @@
 
     </script>
 </head>
-<body >
+<body ontouchmove="BlockElasticScroll(event);">
 	Default Setting<br>
     <div id="patternLocker"></div><br>
 	With options<br>
