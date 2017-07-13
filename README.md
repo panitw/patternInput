@@ -3,7 +3,7 @@ jQuery Pattern Input Plug-in
 
 jQuery plug-in to create input panel using Android Pattern Lock Style. This plug-in requires no dependency (apart from jQuery) and no image is used, just JavaScript and CSS.
 
-<img src="https://dl.dropbox.com/u/9868650/patternInput/screenshot.png">
+![patterninput](https://user-images.githubusercontent.com/390664/28160447-1bb4cff2-67b8-11e7-9e21-1ce26345edf9.png)
 
 See <a href="http://panitw.github.io/patternInput/sample.html">Live Demo here</a>.
 
